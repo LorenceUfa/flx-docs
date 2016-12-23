@@ -1,6 +1,6 @@
 Quick Start Guide
 =================
-Quick start guide to create a new daemon within flexswitch
+Quick start guide to create a new daemon within opxflexswitch
 
 .. image:: images/daemon.png
 
@@ -163,7 +163,7 @@ To generate code used by ConfigMgr, execute below commands from $SR_CODE_BASE/sn
     - gen_ExampleStatedbif.go
     - gen_exampledObjects_serializer.go
     - gen_exampledthriftutil.go
-- Verify FlexSdk repo to see if APIs are generated for the above Objects in **flexSdk/py/flexprintV2.py** and **flexSdk/py/flexswitchV2.py**
+- Verify FlexSdk repo to see if APIs are generated for the above Objects in **flexSdk/py/flexprintV2.py** and **flexSdk/py/opxflexswitchV2.py**
 
 
 
@@ -195,7 +195,7 @@ Make these changes on the top level Makefile as follows.
 Loading module to OpxFlexSwitch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Now we need to make the ExampleDaemon start on every OpxFlexSwitch instantiation. 
-This can be done by editing flexswitch script under $SR_CODE_BASE/reltools/ directory
+This can be done by editing opxflexswitch script under $SR_CODE_BASE/reltools/ directory
 as  follows. Make sure to change runlevel to avoid conflict.
     
  ::

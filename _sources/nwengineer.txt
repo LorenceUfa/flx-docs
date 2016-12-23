@@ -14,7 +14,7 @@ As we all as examples of initial configurations made on the device’s utilizing
    :maxdepth: 1
 
     ONIE Installation instructions <ONIE_Install>
-    OpxFlexSwitch Package Installation <flexswitch_install>
+    OpxFlexSwitch Package Installation <opxflexswitch_install>
 	Configuring OpxFlexSwitch via Ansible <ansible_config>
 	Configuring OpxFlexSwitch via REST <rest_config>
 	Configuring OpxFlexSwitch via Python SDK <python_config>

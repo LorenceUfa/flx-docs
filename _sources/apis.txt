@@ -10,7 +10,7 @@ API reference!
 .. toctree::
    :maxdepth: 2
 
-.. automodule:: flexswitchV2
+.. automodule:: opxflexswitchV2
     :members:
     :undoc-members:
     :inherited-members:

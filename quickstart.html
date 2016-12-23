@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="OpxFlexSwitch 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Getting started with flexswitch on Docker" href="dockerIntro.html"/>
+        <link rel="next" title="Getting started with opxflexswitch on Docker" href="dockerIntro.html"/>
         <link rel="prev" title="Welcome to OpxFlexSwitch" href="index.html"/> 
 
   
@@ -100,7 +100,6 @@
 <li class="toctree-l1"><a class="reference internal" href="developer.html"> Developer Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nwengineer.html"> Network Engineer Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html"> Example Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="softwareflexswitch.html"> Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ONIE_install.html"> ONIE Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html">API reference!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html#indices-and-tables">Indices and tables</a></li>
@@ -257,7 +256,7 @@
 <p>OpxFlexSwitch comes with a Python SDK that can be utilized for configuration, state querying and troubleshooting of our protocols and system daemons.  This module can be imported to a python script you have written to deploy the system or grab state on a periodic basis.
 Below is a primer on how to interact with this system, utilizing the Python SDK to adjust the ARP global timeout value.</p>
 <p>In order to perform this operation with the Python SDK API, you would utilize the following python methods:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;from flexswitchV2 import OpxFlexSwitch</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;from opxflexswitchV2 import OpxFlexSwitch</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">OpxFlexSwitch</span><span class="p">(</span><span class="s2">&quot;10.1.10.243&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span><span class="o">.</span><span class="n">createArpConfig</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="go">({u&#39;ObjectId&#39;: u&#39;45dff5a0-7dc1-441d-723d-ccf731186ece&#39;, u&#39;Error&#39;: u&#39;&#39;}, None)</span>
 </pre></div>
@@ -269,13 +268,13 @@ Below is a primer on how to interact with this system, utilizing the Python SDK 
 <p>As you can see This is a 1:1 mapping of config to a specifc Object, in this case Timeout value of 1000 to ARP.</p>
 <p>On the State side, this is more invovled, since you can have multiple items, that could potentially have thousand of different states.  Think the prefixes/next-hop entries in the routing table or multiple IP/MAC mappings with an ARP table.  Due to this variance in data supplied, State operations are broken down into GetBulk, which supplies information from the entire object OR just an indiviual Get, which returns, just the parameters requested from an object.  The way in which these calls are made is performed by utilizing the method with &#8220;+getAll+&#8221; followed by the Object you wanted to grab; I.E. Arp, Bfd, BGP, etc.</p>
 <p>Lets use ARP again as an example.  If you wished to grab all state entry&#8217;s from the ARP table, you would utilize the &#8220;+getAllArpEntryStates()+&#8221; method. With all Python SDK methods, see below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flexswitchV2</span> <span class="k">import</span> <span class="n">OpxFlexSwitch</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">opxflexswitchV2</span> <span class="k">import</span> <span class="n">OpxFlexSwitch</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">OpxFlexSwitch</span><span class="p">(</span><span class="s2">&quot;10.1.10.243&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span><span class="o">.</span><span class="n">getAllArpEntryStates</span><span class="p">()</span>
 <span class="go">[{u&#39;Object&#39;: {u&#39;ConfigObj&#39;: None, u&#39;Intf&#39;: u&#39;fpPort47&#39;, u&#39;Vlan&#39;: u&#39;Internal Vlan&#39;, u&#39;IpAddr&#39;: u&#39;172.16.0.14&#39;, u&#39;ExpiryTimeLeft&#39;: u&#39;9m24.869691096s&#39;, u&#39;MacAddr&#39;: u&#39;a8:9d:21:aa:8e:01&#39;}, u&#39;ObjectId&#39;: u&#39;&#39;}, {u&#39;Object&#39;: {u&#39;ConfigObj&#39;: None, u&#39;Intf&#39;: u&#39;fpPort49&#39;, u&#39;Vlan&#39;: u&#39;Internal Vlan&#39;, u&#39;IpAddr&#39;: u&#39;172.16.0.20&#39;, u&#39;ExpiryTimeLeft&#39;: u&#39;9m43.991376701s&#39;, u&#39;MacAddr&#39;: u&#39;00:02:03:04:05:00&#39;}, u&#39;ObjectId&#39;: u&#39;&#39;}]</span>
 </pre></div>
 </div>
 <p>If you wanted to make  a call to just grab a specific Arp Entry from the state table, you would utilize method, getArpEntryStates(), see below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flexswitchV2</span> <span class="k">import</span> <span class="n">OpxFlexSwitch</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">opxflexswitchV2</span> <span class="k">import</span> <span class="n">OpxFlexSwitch</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">OpxFlexSwitch</span><span class="p">(</span><span class="s2">&quot;10.1.10.243&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span><span class="o">.</span><span class="n">getArpEntryState</span><span class="p">(</span><span class="s2">&quot;172.16.0.20&quot;</span><span class="p">)</span>
 <span class="go">({u&#39;Object&#39;: {u&#39;ConfigObj&#39;: None, u&#39;Intf&#39;: u&#39;fpPort49&#39;, u&#39;Vlan&#39;: u&#39;Internal Vlan&#39;, u&#39;IpAddr&#39;: u&#39;172.16.0.20&#39;, u&#39;ExpiryTimeLeft&#39;: u&#39;16m38.505153914s&#39;, u&#39;MacAddr&#39;: u&#39;00:02:03:04:05:00&#39;}, u&#39;ObjectId&#39;: u&#39;&#39;}, None)</span>
 </pre></div>
@@ -345,21 +344,21 @@ Below is a primer on how to interact with this system, utilizing the Python SDK 
 <div><ol class="arabic">
 <li><dl class="first docutils">
 <dt>Add JSON configuration to desiredConfig.json (creating the file, if necessary):</dt>
-<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ vi /opt/flexswitch/desiredConfig.json
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ vi /opt/opxflexswitch/desiredConfig.json
 </pre></div>
 </div>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Apply the configuration using monitor.py in the /opt/flexswitch/apps/cfgmon directory:</dt>
-<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ cd /opt/flexswitch/apps/cfgmon
+<dt>Apply the configuration using monitor.py in the /opt/opxflexswitch/apps/cfgmon directory:</dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ cd /opt/opxflexswitch/apps/cfgmon
 
 $ python monitor.py --applyConfig=True
 
-Namespace(applyConfig=True, cfgDir=&#39;/opt/flexswitch/&#39;, ip=&#39;localhost&#39;, poll=None, port=&#39;8080&#39;, saveConfig=True)
+Namespace(applyConfig=True, cfgDir=&#39;/opt/opxflexswitch/&#39;, ip=&#39;localhost&#39;, poll=None, port=&#39;8080&#39;, saveConfig=True)
 System Is ready
-Configuration is saved to /opt/flexswitch//runningConfig.json
+Configuration is saved to /opt/opxflexswitch//runningConfig.json
 Updating object Port
 Creating Object Vlan
 Creating Object Vlan
@@ -470,7 +469,7 @@ The above shows a successful ping response using the remote user of root, as tha
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dockerIntro.html" class="btn btn-neutral float-right" title="Getting started with flexswitch on Docker" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dockerIntro.html" class="btn btn-neutral float-right" title="Getting started with opxflexswitch on Docker" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to OpxFlexSwitch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

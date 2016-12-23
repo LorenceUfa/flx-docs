@@ -107,7 +107,7 @@ Below are examples for utilizing this method via the Python CLI, python script a
 
 ::  
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).createArpGlobal("default", 1000)
 	({u'ObjectId': u'45dff5a0-7dc1-441d-723d-ccf731186ece', u'Error': u''}, None)      
 
@@ -121,7 +121,7 @@ Below are examples for utilizing this method via the Python CLI, python script a
 ::
 
 	#!/usr/bin/python
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -137,7 +137,7 @@ Below are examples for utilizing this method via the Python CLI, python script a
 
 	#!/usr/bin/python
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -248,7 +248,7 @@ Below are examples for utilizing this method via the Python CLI, python script a
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).createArpStatic("50.1.1.10","01:23:34:56:78")
 	({u'ObjectId': u'9e81f7d4-f9f0-4c86-556b-6398e47897bc', u'Error': u''}, None)
 	
@@ -257,7 +257,7 @@ Below are examples for utilizing this method via the Python CLI, python script a
 ::
 
 	#!/usr/bin/python
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -275,7 +275,7 @@ Below are examples for utilizing this method via the Python CLI, python script a
 
 	#!/usr/bin/python
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -381,7 +381,7 @@ Below are examples for utilizing this method via the Python CLI, python script a
 1. Python CLI 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> flexSwitch("10.1.10.243", 8080).getAllArpEntryStates()
 	[{u'Object': {u'ConfigObj': None, u'Intf': u'fpPort47', u'Vlan': u'Internal Vlan', u'IpAddr': u'172.16.0.14', u'ExpiryTimeLeft': u'9m24.869691096s', u'MacAddr': u'a8:9d:21:aa:8e:01'}, u'ObjectId': u''}, {u'Object': {u'ConfigObj': None, u'Intf': u'fpPort49', u'Vlan': u'Internal Vlan', u'IpAddr': u'172.16.0.20', u'ExpiryTimeLeft': u'9m43.991376701s', u'MacAddr': u'00:02:03:04:05:00'}, u'ObjectId': u''}]
 
@@ -395,7 +395,7 @@ You can display the results of this change with the following Python Script:
 
 	#!/usr/bin/python
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -506,7 +506,7 @@ Displaying all ARP entries utilizing OpxFlexSwitch's Python SDK, utilizing metho
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).getArpEntryState("172.16.0.20")
 	({u'Object': {u'ConfigObj': None, u'Intf': u'fpPort49', u'Vlan': u'Internal Vlan', u'IpAddr': u'172.16.0.20', u'ExpiryTimeLeft': u'16m38.505153914s', u'MacAddr': u'00:02:03:04:05:00'}, u'ObjectId': u''}, None)
 
@@ -517,7 +517,7 @@ Displaying all ARP entries utilizing OpxFlexSwitch's Python SDK, utilizing metho
 
 	#!/usr/bin/python
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -1140,7 +1140,7 @@ VRF name where BFD will be Globally enabled. By default this is the "*default*" 
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).createBfdGlobal("default", True)
 	({u'ObjectId': u'5b4a4b49-7310-444e-64da-5d8e8764e914', u'Error': u''}, None)
 
@@ -1151,7 +1151,7 @@ Can be applied with the following Python Script:
 ::
 
 	#!/usr/bin/python
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -1203,7 +1203,7 @@ Here we are creating the BFD session parameters that will be utilized by the BFD
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).createBfdSessionParam("BFD_Session", LocalMultiplier=3, RequiredMinRxInterval=250, DesiredMinTxInterval=250)
 	({u'ObjectId': u'5b4a4b49-7310-444e-64da-5d8e8764e914', u'Error': u''}, None)
 
@@ -1214,7 +1214,7 @@ Can be applied with the following Python Script:
 ::
 
 	#!/usr/bin/python
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -1255,7 +1255,7 @@ Attaching BFD params to a BFD session
 
 			::
 
-				>>> from flexswitchV2 import OpxFlexSwitch
+				>>> from opxflexswitchV2 import OpxFlexSwitch
 				>>> OpxFlexSwitch("10.1.10.243", 8080).createBfdSession(ParaName="BFD_Sessions", IpAddr="1.1.1.1")
 				({u'ObjectId': u'5b4a4b49-7310-444e-64da-5d8e8764e914', u'Error': u''}, None)
 
@@ -1266,7 +1266,7 @@ Attaching BFD params to a BFD session
 			::
 
 				#!/usr/bin/python
-				from flexswitchV2 import OpxFlexSwitch
+				from opxflexswitchV2 import OpxFlexSwitch
 
 
 				if __name__ =='__main__':
@@ -1310,7 +1310,7 @@ We can start by looking at the BFD configuration of was setup in the example sec
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).getAllBfdSessionParams()
 	[{u'Object': {u'ConfigObj': None, u'RequiredMinRxInterval': 250, u'AuthType': u'simple', u'Name': u'Session1', u'AuthKeyId': 1, u'AuthData': u'snaproute', u'DesiredMinTxInterval': 250, u'AuthenticationEnabled': False, u'DemandEnabled': False, u'RequiredMinEchoRxInterval': 0, u'LocalMultiplier': 3}, u'ObjectId': u'376eebef-4061-45e8-77c4-058b4b501deb'}]	
 
@@ -1321,7 +1321,7 @@ Can be viewed with the following Python Script:
 
 	#!/usr/bin/python
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -1381,7 +1381,7 @@ Can be viewed with the following Python Script:
 
 	#!/usr/bin/python
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -1445,7 +1445,7 @@ Can be viewed via the following python script
 
 	#!/usr/bin/python
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -1496,7 +1496,7 @@ inherited via the *ParamName* variable, BFD_Sessions in this case. As well aa BF
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).getAllBfdSessionStates()
 	[{u'Object': {u'RegisteredProtocols': u'user, ', u'DesiredMinTxInterval': u'250000(us)', u'SessionId': 640, u'ParamName': u'BFD_Sessons', u'DemandMode': False, u'DetectionMultiplier': 3, u'SentAuthSeq': 0, u'LocalDiscriminator': 640, u'SessionState': u'up', u'AuthSeqKnown': False, u'PerLinkSession': False, u'IfName': u'', u'ConfigObj': None, u'RequiredMinRxInterval': u'250000(us)', u'AuthType': u'', u'RemoteDiscriminator': 564, u'RemoteSessionState': u'up', u'NumTxPackets': 850068, u'InterfaceSpecific': False, u'NumRxPackets': 826751, u'RemoteDemandMode': False, u'LocalMacAddr': u'', u'RemoteMinRxInterval': u'250000(us)', u'IpAddr': u'1.1.1.1', u'RemoteMacAddr': u'', u'LocalDiagType': u'None', u'IfIndex': 49, u'ReceivedAuthSeq': 0}, u'ObjectId': u''}]
 	
@@ -1506,7 +1506,7 @@ Can be viewed via the following python script.
 ::
 
 	import json
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 
 	if __name__ =='__main__':
@@ -1695,7 +1695,7 @@ BGP requires a local AS Number and a Router ID to enable globally.  Once these t
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("192.168.0.2", 8080).createBGPGlobal(ASNum=65535 ,RouterId="1.1.1.1")
 	({u'ObjectId': u'61e6ad4b-6bc7-4e35-5c9a-89106728c4b4', u'Error': u''}, None)
 
@@ -2073,7 +2073,7 @@ Configuring with Python SDK
 
 ::
 	
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("<*IP address*>", <*TCP Port *>).createBGPNeighbor(PeerAS=<*Peer AS Number*>
 									LocalAS=<*Local AS number*>,
 									AuthPassword=<*Password*>,
@@ -2189,14 +2189,14 @@ See Topology1 for details:
 
 	::
 	
-		>>> from flexswitchV2 import OpxFlexSwitch
+		>>> from opxflexswitchV2 import OpxFlexSwitch
 		>>> OpxFlexSwitch("10.1.0.241", 8080).createBGPNeighbor(PeerAS=65535 , NeighborAddress="1.1.1.1", IfIndex=0)
 		({u'ObjectId': u'a34dde27-eea0-40ee-43f0-2836376accb7', u'Error': u''}, None)
 
 2. On device2 (10.1.10.243), we will create a neighbor to 1.1.1.0 from IPv4 1.1.1.1
 	::
 
-		>>> from flexswitchV2 import OpxFlexSwitch
+		>>> from opxflexswitchV2 import OpxFlexSwitch
 		>>> OpxFlexSwitch("10.1.0.243", 8080).createBGPNeighbor(PeerAS=65535 , NeighborAddress="1.1.1.0", IfIndex=0)
 		({u'ObjectId': u'28fb7889-ee13-4ee8-4d4b-784d8121f707', u'Error': u''}, None)
 
@@ -2929,7 +2929,7 @@ Configuring with Python SDK
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("<*IP address*>", <*TCP Port *>).createBGPPeerGroup(PeerAS=<*Peer AS Number*>
 									AuthPassword=<*Password*>,
 									Description=<*Peer Description*>,
@@ -3003,7 +3003,7 @@ Topology 1:
 
 	::
 	
-		>>> from flexswitchV2 import OpxFlexSwitch
+		>>> from opxflexswitchV2 import OpxFlexSwitch
 		>>> OpxFlexSwitch("10.1.0.241", 8080).createBGPPeerGroup(KeepaliveTime=30, HoldTime=90, ConnectRetryTime=30 , Name="Group1")
 		({u'ObjectId': u'f91bc8e5-fcb7-461a-4c17-5298b19ab280', u'Error': u''}, None)
 		
@@ -3012,7 +3012,7 @@ Topology 1:
 
 	::
 	
-		>>> from flexswitchV2 import OpxFlexSwitch
+		>>> from opxflexswitchV2 import OpxFlexSwitch
 		>>> OpxFlexSwitch("10.1.0.243", 8080).createBGPPeerGroup(KeepaliveTime=30, HoldTime=90, ConnectRetryTime=30 , Name="Group1")
 		({u'ObjectId': u'5683eeac-8457-65bd-43f0-23642abf2e78', u'Error': u''}, None)
 
@@ -3581,7 +3581,7 @@ Below is an example of enabling BFD on an existing BGP neighbor:
 
 	::
 
-		>>> from flexswitchV2 import OpxFlexSwitch
+		>>> from opxflexswitchV2 import OpxFlexSwitch
 		>>> OpxFlexSwitch("10.1.10.245", 8080).createBfdSessionParam(Name="BFD_Session", RequiredMinRxInterval=250, DesiredMinTxInterval=250, LocalMultiplier=3)
 		({u'ObjectId': u'a4963a6b-b8cc-4dc8-7693-cbf907a0af0f', u'Error': u''}, None) 
 	.. Note:: See Creating :ref:`bfd-session-parameters-python` section for more details. 
@@ -4151,7 +4151,7 @@ Enable On Interface
 
 **EXAMPLE**
 
->>> from flexswitchV2 import OpxFlexSwitch
+>>> from opxflexswitchV2 import OpxFlexSwitch
 >>> OpxFlexSwitch ("192.168.10.1", 8080).createDhcpRelayGlobal(DhcpRelay="dr", Enable=true)
 >>> OpxFlexSwitch ("192.168.10.1", 8080).createDhcpRelayIntf(IfIndex=355413, Enable=true, ServerIP=['90.0.1.2', '80.0.1.2'])
 
@@ -4211,7 +4211,7 @@ Configuring with Python SDK
 
 **EXAMPLE:**
 
->>> from flexswitchV2 import OpxFlexSwitch
+>>> from opxflexswitchV2 import OpxFlexSwitch
 >>> OpxFlexSwitch ("192.168.10.1", 8080).createLLDPIntf(IfIndex=355414, Enable=false):
 
 
@@ -4306,7 +4306,7 @@ Configuring with Python SDK
 +----------------------+----------------------+------------+---------------------------------------------+----------+----------+
 
 **EXAMPLE:**
->>> from flexswitchV2 import OpxFlexSwitch
+>>> from opxflexswitchV2 import OpxFlexSwitch
 >>> OpxFlexSwitch ("192.168.10.1", 8080).updateSystemLogging(Vrf="default", Logging="off"):
 
 
@@ -4332,7 +4332,7 @@ Configuring with Python SDK
 Logging level can be - crit/err/warn/alert/emerg/notice/info/debug/trace/off
 
 **EXAMPLE:**
->>> from flexswitchV2 import OpxFlexSwitch
+>>> from opxflexswitchV2 import OpxFlexSwitch
 >>> OpxFlexSwitch ("192.168.10.1", 8080).updateComponentLogging(Module="bfdd", Level="debug"):
 
 
@@ -5010,5 +5010,5 @@ Vrrp requires VRID to enable it per port. Once it is configured then Protocol FS
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("192.168.0.2", 8080).createVrrpIntf(ifIndex=355413 ,VRID=1, VirtualIPv4Addr="172.16.0.1")

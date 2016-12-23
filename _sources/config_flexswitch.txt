@@ -253,9 +253,9 @@ To clear all OpxFlexSwitch configurations, the Redis database needs to be flushe
 2) Restart OpxFlexSwitch service:
 	::
 		
-		$ sudo service flexswitch restart
-		* Restarting flexswitch flexswitch
+		$ sudo service opxflexswitch restart
+		* Restarting opxflexswitch opxflexswitch
 
-This process will be automated in a future release and integrated into /etc/init.d/flexswitch – by utilizing “sudo service flexswitch clear-config”.  This will cause OpxFlexSwitch to restart with an empty Redis database.
+This process will be automated in a future release and integrated into /etc/init.d/opxflexswitch – by utilizing “sudo service opxflexswitch clear-config”.  This will cause OpxFlexSwitch to restart with an empty Redis database.
 
 

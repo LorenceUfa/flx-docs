@@ -37,12 +37,12 @@ SystemSwVersionState Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"
 		swtch = OpxFlexSwitch (switchIP, 8080)  # Instantiate object to talk to flexSwitch
-		response, error = swtch.getSystemSwVersionState(FlexswitchVersion=flexswitchversion)
+		response, error = swtch.getSystemSwVersionState(FlexswitchVersion=opxflexswitchversion)
 
 		if error != None: #Error not being None implies there is some problem
 			print error
@@ -57,7 +57,7 @@ SystemSwVersionState Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"
@@ -79,7 +79,7 @@ SystemSwVersionState Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"

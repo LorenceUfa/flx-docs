@@ -51,13 +51,13 @@ Solution - Run the script in sudo mode.
 root@0f5d1d2455fc:/# curl -H "Content-Type: application/json" -d '{"IpAddr": "40.1.1.2/24", "IntfRef": "eth35"}'http://localhost:8080/public/v1/config/IPv4Intf                                  
 curl: (7) Failed to connect to localhost port 8080: Connection refused
 
-This most of the times mean flexswitch didnt start correctly. You can check if there is any daemon running using
+This most of the times mean opxflexswitch didnt start correctly. You can check if there is any daemon running using
 
 ps -aux | grep flex
 
-Start flexswitch using 
+Start opxflexswitch using 
 
-/etc/init.d/flexswitch start
+/etc/init.d/opxflexswitch start
 
 
 

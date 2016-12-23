@@ -240,7 +240,7 @@ It shows details if each daemon is up/down along and reason of failure if any.
 
 
 
-- check ports populated by flexswitch (This will give you ifindex as well) 
+- check ports populated by opxflexswitch (This will give you ifindex as well) 
 
 ::
 

@@ -33,7 +33,7 @@
     <link rel="top" title="OpxFlexSwitch 1.0 documentation" href="index.html"/>
         <link rel="up" title="Network Engineer Guide" href="nwengineer.html"/>
         <link rel="next" title="Utilizing RESTful API with OpxFlexSwitch" href="rest_config.html"/>
-        <link rel="prev" title="OpxFlexSwitch Package Installation" href="flexswitch_install.html"/> 
+        <link rel="prev" title="Network Engineer Guide" href="nwengineer.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,7 +86,6 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html"> Quick Start Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html"> Developer Home</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="nwengineer.html"> Network Engineer Home</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="flexswitch_install.html"> OpxFlexSwitch Package Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">     Configuring OpxFlexSwitch via Ansible</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-via-json-file">Configuration via JSON File</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ansible-integration">Ansible Integration</a></li>
@@ -97,7 +96,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="example.html"> Example Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="softwareflexswitch.html"> Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ONIE_install.html"> ONIE Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html">API reference!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html#indices-and-tables">Indices and tables</a></li>
@@ -215,21 +213,21 @@ we will demonstrate how this can be done utilizing Ansible.</p>
 <div><ol class="arabic">
 <li><dl class="first docutils">
 <dt>Add JSON configuration to desiredConfig.json (creating the file, if necessary):</dt>
-<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ vi /opt/flexswitch/desiredConfig.json
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ vi /opt/opxflexswitch/desiredConfig.json
 </pre></div>
 </div>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Apply the configuration using monitor.py in the /opt/flexswitch/apps/cfgmon directory:</dt>
-<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ cd /opt/flexswitch/apps/cfgmon
+<dt>Apply the configuration using monitor.py in the /opt/opxflexswitch/apps/cfgmon directory:</dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span>$ cd /opt/opxflexswitch/apps/cfgmon
 
 $ python monitor.py --applyConfig=True
 
-Namespace(applyConfig=True, cfgDir=&#39;/opt/flexswitch/&#39;, ip=&#39;localhost&#39;, poll=None, port=&#39;8080&#39;, saveConfig=True)
+Namespace(applyConfig=True, cfgDir=&#39;/opt/opxflexswitch/&#39;, ip=&#39;localhost&#39;, poll=None, port=&#39;8080&#39;, saveConfig=True)
 System Is ready
-Configuration is saved to /opt/flexswitch//runningConfig.json
+Configuration is saved to /opt/opxflexswitch//runningConfig.json
 Updating object Port
 Creating Object Vlan
 Creating Object Vlan
@@ -401,7 +399,7 @@ $ sudo mkdir -p /etc/ansible/host_vars
 </pre></div>
 </div>
 <p>Save the above template in this location:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">flexswitch_example</span><span class="o">.</span><span class="n">j2</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">opxflexswitch_example</span><span class="o">.</span><span class="n">j2</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -437,7 +435,7 @@ $ sudo mkdir -p /etc/ansible/host_vars
 <dd><ul class="first last simple">
 <li>Use apt-get to install OpxFlexSwitch (if it is not already installed)</li>
 <li>Ensure that OpxFlexSwitch is currently running</li>
-<li>Build the desiredConfig.json file based on the flexswitch_example.j2 template</li>
+<li>Build the desiredConfig.json file based on the opxflexswitch_example.j2 template</li>
 <li>Whenever there is a change to desiredConfig.json (i.e. a variable or the template is updated) – the monitory.py application is run to apply the new configuration</li>
 </ul>
 </dd>
@@ -447,26 +445,26 @@ $ sudo mkdir -p /etc/ansible/host_vars
 <span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="nb">all</span>
   <span class="n">remote_user</span><span class="p">:</span> <span class="n">root</span>
   <span class="n">tasks</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">ensure</span> <span class="n">flexswitch</span> <span class="ow">is</span> <span class="n">installed</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">ensure</span> <span class="n">opxflexswitch</span> <span class="ow">is</span> <span class="n">installed</span>
         <span class="n">apt</span><span class="p">:</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">flexswitch</span><span class="o">=</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">92</span>
+          <span class="n">name</span><span class="p">:</span> <span class="n">opxflexswitch</span><span class="o">=</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">92</span>
           <span class="n">state</span><span class="p">:</span> <span class="n">present</span>
           <span class="n">update_cache</span><span class="p">:</span> <span class="n">yes</span>
           <span class="n">force</span><span class="p">:</span> <span class="n">yes</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">ensure</span> <span class="n">flexswitch</span> <span class="ow">is</span> <span class="n">running</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">ensure</span> <span class="n">opxflexswitch</span> <span class="ow">is</span> <span class="n">running</span>
         <span class="n">service</span><span class="p">:</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">flexswitch</span>
+          <span class="n">name</span><span class="p">:</span> <span class="n">opxflexswitch</span>
           <span class="n">state</span><span class="p">:</span> <span class="n">started</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">configure</span> <span class="n">flexswitch</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">configure</span> <span class="n">opxflexswitch</span>
         <span class="n">template</span><span class="p">:</span>
-          <span class="n">src</span><span class="p">:</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">flexswitch_example</span><span class="o">.</span><span class="n">j2</span>
-          <span class="n">dest</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flexswitch</span><span class="o">/</span><span class="n">desiredConfig</span><span class="o">.</span><span class="n">json</span>
+          <span class="n">src</span><span class="p">:</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">templates</span><span class="o">/</span><span class="n">opxflexswitch_example</span><span class="o">.</span><span class="n">j2</span>
+          <span class="n">dest</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">opxflexswitch</span><span class="o">/</span><span class="n">desiredConfig</span><span class="o">.</span><span class="n">json</span>
           <span class="n">force</span><span class="p">:</span> <span class="n">yes</span>
         <span class="n">notify</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">load</span> <span class="n">flexswitch</span> <span class="n">config</span>
+        <span class="o">-</span> <span class="n">load</span> <span class="n">opxflexswitch</span> <span class="n">config</span>
   <span class="n">handlers</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">load</span> <span class="n">flexswitch</span> <span class="n">config</span>
-          <span class="n">command</span><span class="p">:</span> <span class="n">chdir</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">flexswitch</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">cfgmon</span> <span class="n">python</span> <span class="n">monitor</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">applyConfig</span><span class="o">=</span><span class="kc">True</span>
+        <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">load</span> <span class="n">opxflexswitch</span> <span class="n">config</span>
+          <span class="n">command</span><span class="p">:</span> <span class="n">chdir</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">opxflexswitch</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">cfgmon</span> <span class="n">python</span> <span class="n">monitor</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">applyConfig</span><span class="o">=</span><span class="kc">True</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -474,29 +472,29 @@ $ sudo mkdir -p /etc/ansible/host_vars
 </ol>
 <p>The above assumes that apt-get has been configured to point to a repo that contains the OpxFlexSwitch package (in this case version 0.0.92) or that OpxFlexSwitch has been manually installed.</p>
 <p>This playbook should be saved as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">playbooks</span><span class="o">/</span><span class="n">flexswitch</span><span class="o">.</span><span class="n">yml</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">playbooks</span><span class="o">/</span><span class="n">opxflexswitch</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
 <ol class="arabic" start="6">
 <li><p class="first">Run playbook to configure OpxFlexSwitch:</p>
 <p>Using the ansible-playbook command – the previously configured playbook can be run to apply OpxFlexSwitch configs to the target host:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ ansible-playbook flexswitch.yml
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ansible-playbook opxflexswitch.yml
 
 PLAY [all] *********************************************************************
 
 TASK [setup] *******************************************************************
 ok: [10.1.10.43]
 
-TASK [ensure flexswitch is installed] ******************************************
+TASK [ensure opxflexswitch is installed] ******************************************
 ok: [10.1.10.43]
 
-TASK [ensure flexswitch is running] ********************************************
+TASK [ensure opxflexswitch is running] ********************************************
 changed: [10.1.10.43]
 
-TASK [configure flexswitch] ****************************************************
+TASK [configure opxflexswitch] ****************************************************
 changed: [10.1.10.43]
 
-RUNNING HANDLER [load flexswitch config] ***************************************
+RUNNING HANDLER [load opxflexswitch config] ***************************************
 changed: [10.1.10.43]
 
 PLAY RECAP *********************************************************************
@@ -505,26 +503,26 @@ PLAY RECAP *********************************************************************
 </div>
 <p>This output shows that the playbook was successfully applied to 10.1.10.43, indicating which tasks caused changes to be applied.  Since this is the first run of the playbook and the target device had no configurations – the result is “changed” for each of the configuration tasks.</p>
 <p>A subsequent run – where neither the variables or the template is updated results in a playbook run where nothing is changed:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ ansible-playbook flexswitch.yml
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ansible-playbook opxflexswitch.yml
 
 PLAY [all] *********************************************************************
 
 TASK [setup] *******************************************************************
 ok: [10.1.10.43]
 
-TASK [ensure flexswitch is installed] ******************************************
+TASK [ensure opxflexswitch is installed] ******************************************
 ok: [10.1.10.43]
 
-TASK [ensure flexswitch is running] ********************************************
+TASK [ensure opxflexswitch is running] ********************************************
 changed: [10.1.10.43]
 
-TASK [configure flexswitch] ****************************************************
+TASK [configure opxflexswitch] ****************************************************
 ok: [10.1.10.43]
 
 PLAY RECAP *********************************************************************
 10.1.10.43                 : ok=4    changed=1    unreachable=0    failed=0
 
-Note: The “ensure flexswitch is running” task may show “changed” even if OpxFlexSwitch is already running (it will not reload OpxFlexSwitch).
+Note: The “ensure opxflexswitch is running” task may show “changed” even if OpxFlexSwitch is already running (it will not reload OpxFlexSwitch).
 </pre></div>
 </div>
 <p>Now that the configuration is applied via Ansible, the operational state can be verified:</p>
@@ -546,7 +544,7 @@ Note: The “ensure flexswitch is running” task may show “changed” even if
         <a href="rest_config.html" class="btn btn-neutral float-right" title="Utilizing RESTful API with OpxFlexSwitch" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="flexswitch_install.html" class="btn btn-neutral" title="OpxFlexSwitch Package Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="nwengineer.html" class="btn btn-neutral" title="Network Engineer Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -9,22 +9,22 @@ OpxFlexSwitch Package Installation
 The SnapRoute OpxFlexSwitch network protocol stack and accompanying toolchain is provided as an installable Debian dpkg package.  The package and can be added to a local repo or installed manually (shown below).
 
 
-1. SCP flexswitch debian package to the whitebox switch:
+1. SCP opxflexswitch debian package to the whitebox switch:
    .. Note:: Default username: admin, default password: snaproute
 
 	:: 
 	
-		$ scp flexswitch_0.0.80_amd64.deb admin@10.1.10.240:./
+		$ scp opxflexswitch_0.0.80_amd64.deb admin@10.1.10.240:./
 		admin@10.1.10.240's password: 
-		flexswitch_0.0.80_amd64.deb                                                                                                                                                    100%   59MB   9.9MB/s   00:06 ``
+		opxflexswitch_0.0.80_amd64.deb                                                                                                                                                    100%   59MB   9.9MB/s   00:06 ``
 
 2. Once complete login to the whitebox switch and utilize dpkg to install package on the system:
 
 	:: 
 	
-		admin@localhost:~$ sudo dpkg -i flexswitch_0.0.80_amd64.deb 
+		admin@localhost:~$ sudo dpkg -i opxflexswitch_0.0.80_amd64.deb 
 		(Reading database ... 20599 files and directories currently installed.)
-		Preparing to unpack flexswitch_0.0.80_amd64.deb ...
+		Preparing to unpack opxflexswitch_0.0.80_amd64.deb ...
 		Getting MAC address
 		Stopping Daemon asicd
 		Stopping Daemon sysd
@@ -41,24 +41,24 @@ The SnapRoute OpxFlexSwitch network protocol stack and accompanying toolchain is
 		Stopping Daemon vxland
 		Stopping Daemon confd
 		preinst INSTALL called with argument `upgrade'
-		Unpacking flexswitch (0.0.80) over (0.0.80) ...
-		Setting up flexswitch (0.0.80) ...
+		Unpacking opxflexswitch (0.0.80) over (0.0.80) ...
+		Setting up opxflexswitch (0.0.80) ...
 		postinst Configure called with unknown argument `configure'
 		Getting MAC address
-		Starting Daemon asicd Params: -params=/opt/flexswitch/params
-		Starting Daemon sysd Params: -params=/opt/flexswitch/params
-		Starting Daemon ribd Params: -params=/opt/flexswitch/params
-		Starting Daemon bfdd Params: -params=/opt/flexswitch/params
-		Starting Daemon arpd Params: -params=/opt/flexswitch/params
-		Starting Daemon bgpd Params: -params=/opt/flexswitch/params
-		Starting Daemon ospfd Params: -params=/opt/flexswitch/params
-		Starting Daemon lacpd Params: -params=/opt/flexswitch/params
-		Starting Daemon dhcprelayd Params: -params=/opt/flexswitch/params
-		Starting Daemon stpd Params: -params=/opt/flexswitch/params
-		Starting Daemon vrrpd Params: -params=/opt/flexswitch/params
-		Starting Daemon lldpd Params: -params=/opt/flexswitch/params
-		Starting Daemon vxland Params: -params=/opt/flexswitch/params
-		Starting Daemon confd Params: -params=/opt/flexswitch/params
+		Starting Daemon asicd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon sysd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon ribd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon bfdd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon arpd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon bgpd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon ospfd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon lacpd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon dhcprelayd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon stpd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon vrrpd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon lldpd Params: -params=/opt/opxflexswitch/params
+		Starting Daemon vxland Params: -params=/opt/opxflexswitch/params
+		Starting Daemon confd Params: -params=/opt/opxflexswitch/params
 		Total time taken to start all 14 daemons is  0:00:28.025121
 		Processing triggers for libc-bin (2.19-18+deb8u4) ...
 		admin@localhost:~$`` 
@@ -316,7 +316,7 @@ The SnapRoute OpxFlexSwitch network protocol stack and accompanying toolchain is
 			To be Filled in with example to start/stop daemon
 
 
-	b. On Linux edit the file /opt/flexswitch/params/clients.json and remove or add daemon specific JSON, I.E. *{"Name": "<daemon>", "Port": <port-number>}*
+	b. On Linux edit the file /opt/opxflexswitch/params/clients.json and remove or add daemon specific JSON, I.E. *{"Name": "<daemon>", "Port": <port-number>}*
 
 		::
 

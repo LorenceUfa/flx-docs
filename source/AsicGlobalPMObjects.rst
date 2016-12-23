@@ -62,7 +62,7 @@ AsicGlobalPM Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"
@@ -82,7 +82,7 @@ AsicGlobalPM Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"
@@ -104,7 +104,7 @@ AsicGlobalPM Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"
@@ -125,7 +125,7 @@ AsicGlobalPM Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"
@@ -144,7 +144,7 @@ AsicGlobalPM Object
 
 	import sys
 	import os
-	from flexswitchV2 import OpxFlexSwitch
+	from opxflexswitchV2 import OpxFlexSwitch
 
 	if __name__ == '__main__':
 		switchIP := "192.168.56.101"

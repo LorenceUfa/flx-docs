@@ -9,7 +9,7 @@ Instructions to install OpxFlexSwitch
 .. toctree::
    :maxdepth: 2
 
-    Hardware Supporting OpxFlexSwitch <hardwareflexswitch>
-    OpxFlexSwitch Software Installation <softwareflexswitch>
-    OpxFlexSwitch Docker Image         <dockerflexswitch>
+    Hardware Supporting OpxFlexSwitch <hardwareopxflexswitch>
+    OpxFlexSwitch Software Installation <softwareopxflexswitch>
+    OpxFlexSwitch Docker Image         <dockeropxflexswitch>
 

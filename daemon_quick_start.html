@@ -110,7 +110,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nwengineer.html"> Network Engineer Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html"> Example Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="softwareflexswitch.html"> Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ONIE_install.html"> ONIE Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html">API reference!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html#indices-and-tables">Indices and tables</a></li>
@@ -162,7 +161,7 @@
             
   <div class="section" id="quick-start-guide">
 <h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
-<p>Quick start guide to create a new daemon within flexswitch</p>
+<p>Quick start guide to create a new daemon within opxflexswitch</p>
 <img alt="_images/daemon1.png" src="_images/daemon1.png" />
 <p>This guide helps you to create a small daemon skeleton which would run as part of OpxFlexSwitch.
 The daemon is named as Example Daemon.  This daemon is assumed to belong to layer 2
@@ -327,7 +326,7 @@ Here we are passing exampleObjects.go.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">Verify FlexSdk repo to see if APIs are generated for the above Objects in <strong>flexSdk/py/flexprintV2.py</strong> and <strong>flexSdk/py/flexswitchV2.py</strong></p>
+<li><p class="first">Verify FlexSdk repo to see if APIs are generated for the above Objects in <strong>flexSdk/py/flexprintV2.py</strong> and <strong>flexSdk/py/opxflexswitchV2.py</strong></p>
 </li>
 </ul>
 </div>
@@ -352,7 +351,7 @@ Make these changes on the top level Makefile as follows.</p>
 <div class="section" id="loading-module-to-opxflexswitch">
 <h2>Loading module to OpxFlexSwitch<a class="headerlink" href="#loading-module-to-opxflexswitch" title="Permalink to this headline">¶</a></h2>
 <p>Now we need to make the ExampleDaemon start on every OpxFlexSwitch instantiation.
-This can be done by editing flexswitch script under $SR_CODE_BASE/reltools/ directory
+This can be done by editing opxflexswitch script under $SR_CODE_BASE/reltools/ directory
 as  follows. Make sure to change runlevel to avoid conflict.</p>
 <blockquote>
 <div><dl class="docutils">

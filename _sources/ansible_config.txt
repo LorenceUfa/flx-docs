@@ -76,18 +76,18 @@ Configuration files are parsed and executed using the “monitor.py” python ap
 	1) Add JSON configuration to desiredConfig.json (creating the file, if necessary):
 		::
 			
-			$ vi /opt/flexswitch/desiredConfig.json
+			$ vi /opt/opxflexswitch/desiredConfig.json
  
-	2) Apply the configuration using monitor.py in the /opt/flexswitch/apps/cfgmon directory:
+	2) Apply the configuration using monitor.py in the /opt/opxflexswitch/apps/cfgmon directory:
 		::
 		
-			$ cd /opt/flexswitch/apps/cfgmon
+			$ cd /opt/opxflexswitch/apps/cfgmon
 
 			$ python monitor.py --applyConfig=True
 
-			Namespace(applyConfig=True, cfgDir='/opt/flexswitch/', ip='localhost', poll=None, port='8080', saveConfig=True)
+			Namespace(applyConfig=True, cfgDir='/opt/opxflexswitch/', ip='localhost', poll=None, port='8080', saveConfig=True)
 			System Is ready
-			Configuration is saved to /opt/flexswitch//runningConfig.json
+			Configuration is saved to /opt/opxflexswitch//runningConfig.json
 			Updating object Port
 			Creating Object Vlan
 			Creating Object Vlan
@@ -239,7 +239,7 @@ This example will deploy the JSON configuration filed referenced previously.
 		Save the above template in this location:
 		::
 		
-			/etc/ansible/templates/flexswitch_example.j2
+			/etc/ansible/templates/opxflexswitch_example.j2
 
 	4) Assign values to the variables used in the template:
 
@@ -274,7 +274,7 @@ This example will deploy the JSON configuration filed referenced previously.
 		This playbook will do the following:
 			- Use apt-get to install OpxFlexSwitch (if it is not already installed)
 			- Ensure that OpxFlexSwitch is currently running
-			- Build the desiredConfig.json file based on the flexswitch_example.j2 template
+			- Build the desiredConfig.json file based on the opxflexswitch_example.j2 template
 			- Whenever there is a change to desiredConfig.json (i.e. a variable or the template is updated) – the monitory.py application is run to apply the new configuration
 
 		Example Ansible playbook:
@@ -284,33 +284,33 @@ This example will deploy the JSON configuration filed referenced previously.
 			- hosts: all
 			  remote_user: root 
 			  tasks:
-			  - name: ensure flexswitch is installed
+			  - name: ensure opxflexswitch is installed
 				apt:
-				  name: flexswitch=0.0.92
+				  name: opxflexswitch=0.0.92
 				  state: present
 				  update_cache: yes
 				  force: yes
-			  - name: ensure flexswitch is running
+			  - name: ensure opxflexswitch is running
 				service:
-				  name: flexswitch
+				  name: opxflexswitch
 				  state: started
-			  - name: configure flexswitch
+			  - name: configure opxflexswitch
 				template:
-				  src: /etc/ansible/templates/flexswitch_example.j2
-				  dest: /opt/flexswitch/desiredConfig.json
+				  src: /etc/ansible/templates/opxflexswitch_example.j2
+				  dest: /opt/opxflexswitch/desiredConfig.json
 				  force: yes
 				notify:
-				- load flexswitch config
+				- load opxflexswitch config
 			  handlers:
-				- name: load flexswitch config
-				  command: chdir=/opt/flexswitch/apps/cfgmon python monitor.py --applyConfig=True 
+				- name: load opxflexswitch config
+				  command: chdir=/opt/opxflexswitch/apps/cfgmon python monitor.py --applyConfig=True 
 
 	The above assumes that apt-get has been configured to point to a repo that contains the OpxFlexSwitch package (in this case version 0.0.92) or that OpxFlexSwitch has been manually installed.  
 
 	This playbook should be saved as:
 	::
 	
-		/etc/ansible/playbooks/flexswitch.yml
+		/etc/ansible/playbooks/opxflexswitch.yml
 
 
 	6)	Run playbook to configure OpxFlexSwitch:
@@ -318,23 +318,23 @@ This example will deploy the JSON configuration filed referenced previously.
 		Using the ansible-playbook command – the previously configured playbook can be run to apply OpxFlexSwitch configs to the target host:
 		::
 		
-			$ ansible-playbook flexswitch.yml 
+			$ ansible-playbook opxflexswitch.yml 
 
 			PLAY [all] *********************************************************************
 
 			TASK [setup] *******************************************************************
 			ok: [10.1.10.43]
 
-			TASK [ensure flexswitch is installed] ******************************************
+			TASK [ensure opxflexswitch is installed] ******************************************
 			ok: [10.1.10.43]
 
-			TASK [ensure flexswitch is running] ********************************************
+			TASK [ensure opxflexswitch is running] ********************************************
 			changed: [10.1.10.43]
 
-			TASK [configure flexswitch] ****************************************************
+			TASK [configure opxflexswitch] ****************************************************
 			changed: [10.1.10.43]
 
-			RUNNING HANDLER [load flexswitch config] ***************************************
+			RUNNING HANDLER [load opxflexswitch config] ***************************************
 			changed: [10.1.10.43]
 
 			PLAY RECAP *********************************************************************
@@ -346,26 +346,26 @@ This example will deploy the JSON configuration filed referenced previously.
 		A subsequent run – where neither the variables or the template is updated results in a playbook run where nothing is changed:
 		::
 		
-			$ ansible-playbook flexswitch.yml 
+			$ ansible-playbook opxflexswitch.yml 
 
 			PLAY [all] *********************************************************************
 
 			TASK [setup] *******************************************************************
 			ok: [10.1.10.43]
 
-			TASK [ensure flexswitch is installed] ******************************************
+			TASK [ensure opxflexswitch is installed] ******************************************
 			ok: [10.1.10.43]
 
-			TASK [ensure flexswitch is running] ********************************************
+			TASK [ensure opxflexswitch is running] ********************************************
 			changed: [10.1.10.43]
 
-			TASK [configure flexswitch] ****************************************************
+			TASK [configure opxflexswitch] ****************************************************
 			ok: [10.1.10.43]
 
 			PLAY RECAP *********************************************************************
 			10.1.10.43                 : ok=4    changed=1    unreachable=0    failed=0   
 
-			Note: The “ensure flexswitch is running” task may show “changed” even if OpxFlexSwitch is already running (it will not reload OpxFlexSwitch).
+			Note: The “ensure opxflexswitch is running” task may show “changed” even if OpxFlexSwitch is already running (it will not reload OpxFlexSwitch).
 
 
 

@@ -31,9 +31,9 @@
 
   
     <link rel="top" title="OpxFlexSwitch 1.0 documentation" href="index.html"/>
-        <link rel="up" title="Getting started with flexswitch on Docker" href="dockerIntro.html"/>
+        <link rel="up" title="Getting started with opxflexswitch on Docker" href="dockerIntro.html"/>
         <link rel="next" title="BGP with 2 nodes" href="bgpDocker.html"/>
-        <link rel="prev" title="Getting ready with flexswitch" href="installDocker.html"/> 
+        <link rel="prev" title="Getting ready with opxflexswitch" href="installDocker.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -104,7 +104,6 @@
 <li class="toctree-l1"><a class="reference internal" href="developer.html"> Developer Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nwengineer.html"> Network Engineer Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html"> Example Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="softwareflexswitch.html"> Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ONIE_install.html"> ONIE Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html">API reference!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html#indices-and-tables">Indices and tables</a></li>
@@ -140,7 +139,7 @@
       
           <li><a href="quickstart.html">QuickStart Guide</a> &raquo;</li>
       
-          <li><a href="dockerIntro.html">Getting started with flexswitch on Docker</a> &raquo;</li>
+          <li><a href="dockerIntro.html">Getting started with opxflexswitch on Docker</a> &raquo;</li>
       
     <li>Ping Test</li>
       <li class="wy-breadcrumbs-aside">
@@ -381,7 +380,7 @@ And begin with pinging from interface on 1 docker to the other.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li>check ports populated by flexswitch (This will give you ifindex as well)</li>
+<li>check ports populated by opxflexswitch (This will give you ifindex as well)</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -X GET --header &#39;Content-Type: application/json&#39; --header &#39;Accept: application/json&#39; &#39;http://localhost:8080/public/v1/state/Ports&#39; | python -m json.tool
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -491,7 +490,7 @@ root@d28c36ed59e5:/#
         <a href="bgpDocker.html" class="btn btn-neutral float-right" title="BGP with 2 nodes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installDocker.html" class="btn btn-neutral" title="Getting ready with flexswitch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="installDocker.html" class="btn btn-neutral" title="Getting ready with opxflexswitch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

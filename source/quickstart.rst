@@ -130,7 +130,7 @@ In order to perform this operation with the Python SDK API, you would utilize th
 
 ::  
 
-	>>>from flexswitchV2 import OpxFlexSwitch
+	>>>from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).createArpConfig("1", 1000)
 	({u'ObjectId': u'45dff5a0-7dc1-441d-723d-ccf731186ece', u'Error': u''}, None)      
 
@@ -147,7 +147,7 @@ Lets use ARP again as an example.  If you wished to grab all state entry's from 
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).getAllArpEntryStates()
 	[{u'Object': {u'ConfigObj': None, u'Intf': u'fpPort47', u'Vlan': u'Internal Vlan', u'IpAddr': u'172.16.0.14', u'ExpiryTimeLeft': u'9m24.869691096s', u'MacAddr': u'a8:9d:21:aa:8e:01'}, u'ObjectId': u''}, {u'Object': {u'ConfigObj': None, u'Intf': u'fpPort49', u'Vlan': u'Internal Vlan', u'IpAddr': u'172.16.0.20', u'ExpiryTimeLeft': u'9m43.991376701s', u'MacAddr': u'00:02:03:04:05:00'}, u'ObjectId': u''}]
 
@@ -156,7 +156,7 @@ If you wanted to make  a call to just grab a specific Arp Entry from the state t
 
 ::
 
-	>>> from flexswitchV2 import OpxFlexSwitch
+	>>> from opxflexswitchV2 import OpxFlexSwitch
 	>>> OpxFlexSwitch("10.1.10.243", 8080).getArpEntryState("172.16.0.20")
 	({u'Object': {u'ConfigObj': None, u'Intf': u'fpPort49', u'Vlan': u'Internal Vlan', u'IpAddr': u'172.16.0.20', u'ExpiryTimeLeft': u'16m38.505153914s', u'MacAddr': u'00:02:03:04:05:00'}, u'ObjectId': u''}, None)
 
@@ -230,18 +230,18 @@ Configuration files are parsed and executed using the “monitor.py” python ap
 	1) Add JSON configuration to desiredConfig.json (creating the file, if necessary):
 		::
 			
-			$ vi /opt/flexswitch/desiredConfig.json
+			$ vi /opt/opxflexswitch/desiredConfig.json
  
-	2) Apply the configuration using monitor.py in the /opt/flexswitch/apps/cfgmon directory:
+	2) Apply the configuration using monitor.py in the /opt/opxflexswitch/apps/cfgmon directory:
 		::
 		
-			$ cd /opt/flexswitch/apps/cfgmon
+			$ cd /opt/opxflexswitch/apps/cfgmon
 
 			$ python monitor.py --applyConfig=True
 
-			Namespace(applyConfig=True, cfgDir='/opt/flexswitch/', ip='localhost', poll=None, port='8080', saveConfig=True)
+			Namespace(applyConfig=True, cfgDir='/opt/opxflexswitch/', ip='localhost', poll=None, port='8080', saveConfig=True)
 			System Is ready
-			Configuration is saved to /opt/flexswitch//runningConfig.json
+			Configuration is saved to /opt/opxflexswitch//runningConfig.json
 			Updating object Port
 			Creating Object Vlan
 			Creating Object Vlan

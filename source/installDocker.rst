@@ -1,4 +1,4 @@
-Getting ready with flexswitch 
+Getting ready with opxflexswitch 
 ==========================================
 
 ::
@@ -8,7 +8,7 @@ Getting ready with flexswitch
 
 
 Please use below script to set up docker containers that can be
-used to experiment with flexswitch.
+used to experiment with opxflexswitch.
 
 :: 
     
@@ -32,14 +32,14 @@ This command will pull the latest image from docker hub.
  
 :: 
   
-   Snaproute flexswitch image is added in the docker hub 
+   Snaproute opxflexswitch image is added in the docker hub 
    https://hub.docker.com/r/snapos/flex/
    
    docker hub has 2 tags for images
   
-   auto - This is the default ubuntu image with packages installed that are needed for flexswitch. 
-          Such as redis , syslog. This DOES NOT have flexswitch installed on it.
-   Flexv<version_number> - Latest flexswitch image for docker. This image tag will be used for all   
+   auto - This is the default ubuntu image with packages installed that are needed for opxflexswitch. 
+          Such as redis , syslog. This DOES NOT have opxflexswitch installed on it.
+   Flexv<version_number> - Latest opxflexswitch image for docker. This image tag will be used for all   
                            the tutorials next.
 
    Example - 
@@ -56,7 +56,7 @@ docker run -dt --privileged --log-driver=syslog --cap-add=ALL  --name d_inst1   
 
 ::
 
- **Note**  The flags used while spawning container . Which are necessary for proper functioning of the flexswitch
+ **Note**  The flags used while spawning container . Which are necessary for proper functioning of the opxflexswitch
     --log-driver  This will enable syslog support for logging
     --cap-add=ALL In order to create/get on  linux interfaces enable all permissions.
    
@@ -66,20 +66,20 @@ Verify Flexswitch installation
 - When docker container is spawned by default we start rsyslogd and redis-server. 
 
 
-- /etc/init.d/flexswitch is the script to start /stop the flexswitch daemons. 
+- /etc/init.d/opxflexswitch is the script to start /stop the opxflexswitch daemons. 
 
 :: 
 
  
-/etc/init.d/flexswitch <start/stop/restart>
+/etc/init.d/opxflexswitch <start/stop/restart>
 
 Basic commands 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Start flexswitch 
+- Start opxflexswitch 
 
 ::
 
-    service flexswitch start
+    service opxflexswitch start
 
 
 

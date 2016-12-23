@@ -4,7 +4,7 @@
 Create Daemon Detailed Guide
 ============================
 
-Detailed guide to create a new daemon within flexswitch
+Detailed guide to create a new daemon within opxflexswitch
 
 System Archetecture Overview
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -24,7 +24,7 @@ around the following key areas:
 
 .. image:: daemon.png
 
-The following Repos are supported by flexswitch so first choose 
+The following Repos are supported by opxflexswitch so first choose 
 where your daemon code should be implemented:
 
 - apps

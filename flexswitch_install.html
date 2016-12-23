@@ -30,10 +30,7 @@
   
 
   
-    <link rel="top" title="OpxFlexSwitch 1.0 documentation" href="index.html"/>
-        <link rel="up" title="Network Engineer Guide" href="nwengineer.html"/>
-        <link rel="next" title="Utilizing Ansible with OpxFlexSwitch" href="ansible_config.html"/>
-        <link rel="prev" title="Network Engineer Guide" href="nwengineer.html"/> 
+    <link rel="top" title="OpxFlexSwitch 1.0 documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -82,18 +79,11 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html"> Quick Start Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html"> Developer Home</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="nwengineer.html"> Network Engineer Home</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#"> OpxFlexSwitch Package Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ansible_config.html">     Configuring OpxFlexSwitch via Ansible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rest_config.html">     Configuring OpxFlexSwitch via REST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nwengineer.html#supporting-documentation">Supporting Documentation</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="nwengineer.html"> Network Engineer Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html"> Example Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="softwareflexswitch.html"> Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ONIE_install.html"> ONIE Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html">API reference!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apis.html#indices-and-tables">Indices and tables</a></li>
@@ -127,8 +117,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-          <li><a href="nwengineer.html">Network Engineer Guide</a> &raquo;</li>
-      
     <li>OpxFlexSwitch Package Installation</li>
       <li class="wy-breadcrumbs-aside">
         
@@ -147,21 +135,21 @@
 <h1>OpxFlexSwitch Package Installation<a class="headerlink" href="#opxflexswitch-package-installation" title="Permalink to this headline">¶</a></h1>
 <p>The SnapRoute OpxFlexSwitch network protocol stack and accompanying toolchain is provided as an installable Debian dpkg package.  The package and can be added to a local repo or installed manually (shown below).</p>
 <ol class="arabic">
-<li><p class="first">SCP flexswitch debian package to the whitebox switch:
+<li><p class="first">SCP opxflexswitch debian package to the whitebox switch:
 .. Note:: Default username: admin, default password: snaproute</p>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span>$ scp flexswitch_0.0.80_amd64.deb admin@10.1.10.240:./
+<div><div class="highlight-default"><div class="highlight"><pre><span></span>$ scp opxflexswitch_0.0.80_amd64.deb admin@10.1.10.240:./
 admin@10.1.10.240&#39;s password:
-flexswitch_0.0.80_amd64.deb                                                                                                                                                    100%   59MB   9.9MB/s   00:06 ``
+opxflexswitch_0.0.80_amd64.deb                                                                                                                                                    100%   59MB   9.9MB/s   00:06 ``
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p class="first">Once complete login to the whitebox switch and utilize dpkg to install package on the system:</p>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span>admin@localhost:~$ sudo dpkg -i flexswitch_0.0.80_amd64.deb
+<div><div class="highlight-default"><div class="highlight"><pre><span></span>admin@localhost:~$ sudo dpkg -i opxflexswitch_0.0.80_amd64.deb
 (Reading database ... 20599 files and directories currently installed.)
-Preparing to unpack flexswitch_0.0.80_amd64.deb ...
+Preparing to unpack opxflexswitch_0.0.80_amd64.deb ...
 Getting MAC address
 Stopping Daemon asicd
 Stopping Daemon sysd
@@ -178,24 +166,24 @@ Stopping Daemon lldpd
 Stopping Daemon vxland
 Stopping Daemon confd
 preinst INSTALL called with argument `upgrade&#39;
-Unpacking flexswitch (0.0.80) over (0.0.80) ...
-Setting up flexswitch (0.0.80) ...
+Unpacking opxflexswitch (0.0.80) over (0.0.80) ...
+Setting up opxflexswitch (0.0.80) ...
 postinst Configure called with unknown argument `configure&#39;
 Getting MAC address
-Starting Daemon asicd Params: -params=/opt/flexswitch/params
-Starting Daemon sysd Params: -params=/opt/flexswitch/params
-Starting Daemon ribd Params: -params=/opt/flexswitch/params
-Starting Daemon bfdd Params: -params=/opt/flexswitch/params
-Starting Daemon arpd Params: -params=/opt/flexswitch/params
-Starting Daemon bgpd Params: -params=/opt/flexswitch/params
-Starting Daemon ospfd Params: -params=/opt/flexswitch/params
-Starting Daemon lacpd Params: -params=/opt/flexswitch/params
-Starting Daemon dhcprelayd Params: -params=/opt/flexswitch/params
-Starting Daemon stpd Params: -params=/opt/flexswitch/params
-Starting Daemon vrrpd Params: -params=/opt/flexswitch/params
-Starting Daemon lldpd Params: -params=/opt/flexswitch/params
-Starting Daemon vxland Params: -params=/opt/flexswitch/params
-Starting Daemon confd Params: -params=/opt/flexswitch/params
+Starting Daemon asicd Params: -params=/opt/opxflexswitch/params
+Starting Daemon sysd Params: -params=/opt/opxflexswitch/params
+Starting Daemon ribd Params: -params=/opt/opxflexswitch/params
+Starting Daemon bfdd Params: -params=/opt/opxflexswitch/params
+Starting Daemon arpd Params: -params=/opt/opxflexswitch/params
+Starting Daemon bgpd Params: -params=/opt/opxflexswitch/params
+Starting Daemon ospfd Params: -params=/opt/opxflexswitch/params
+Starting Daemon lacpd Params: -params=/opt/opxflexswitch/params
+Starting Daemon dhcprelayd Params: -params=/opt/opxflexswitch/params
+Starting Daemon stpd Params: -params=/opt/opxflexswitch/params
+Starting Daemon vrrpd Params: -params=/opt/opxflexswitch/params
+Starting Daemon lldpd Params: -params=/opt/opxflexswitch/params
+Starting Daemon vxland Params: -params=/opt/opxflexswitch/params
+Starting Daemon confd Params: -params=/opt/opxflexswitch/params
 Total time taken to start all 14 daemons is  0:00:28.025121
 Processing triggers for libc-bin (2.19-18+deb8u4) ...
 admin@localhost:~$``
@@ -508,7 +496,7 @@ admin@localhost:~$``
 </dd>
 </dl>
 </li>
-<li><p class="first">On Linux edit the file /opt/flexswitch/params/clients.json and remove or add daemon specific JSON, I.E. <em>{&#8220;Name&#8221;: &#8220;&lt;daemon&gt;&#8221;, &#8220;Port&#8221;: &lt;port-number&gt;}</em></p>
+<li><p class="first">On Linux edit the file /opt/opxflexswitch/params/clients.json and remove or add daemon specific JSON, I.E. <em>{&#8220;Name&#8221;: &#8220;&lt;daemon&gt;&#8221;, &#8220;Port&#8221;: &lt;port-number&gt;}</em></p>
 <blockquote>
 <div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span>
         <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;asicd&quot;</span><span class="p">,</span>
@@ -629,15 +617,6 @@ admin@localhost:~$``
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ansible_config.html" class="btn btn-neutral float-right" title="Utilizing Ansible with OpxFlexSwitch" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="nwengineer.html" class="btn btn-neutral" title="Network Engineer Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

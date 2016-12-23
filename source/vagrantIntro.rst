@@ -1,4 +1,4 @@
-Getting started with flexswitch on Vagrant 
+Getting started with opxflexswitch on Vagrant 
 ==========================================
 The below instructions describe how to use OpxFlexSwitch on Vagrant. 
 

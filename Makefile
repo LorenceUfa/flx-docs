@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = $(SR_CODE_BASE)/snaproute/src/docs/
-#BUILDDIR      = /ops/flx-docs
+BUILDDIR      = /ops/flx-docs
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
