@@ -60,7 +60,6 @@ OpxFlexSwitch L3 Objects
    IPV6AdjState Objects  <IPV6AdjStateObjects.rst>
    IPv4IntfState Objects  <IPv4IntfStateObjects.rst>
    AclRuleState Objects  <AclRuleStateObjects.rst>
-   ArpEntryHwState Objects  <ArpEntryHwStateObjects.rst>
    IPv6RouteHwState Objects  <IPv6RouteHwStateObjects.rst>
    LinkScopeIpState Objects  <LinkScopeIpStateObjects.rst>
    SubIPv6Intf Objects  <SubIPv6IntfObjects.rst>
@@ -70,9 +69,6 @@ OpxFlexSwitch L3 Objects
    IPv6Intf Objects  <IPv6IntfObjects.rst>
    IPv4RouteHwState Objects  <IPv4RouteHwStateObjects.rst>
    IPv6IntfState Objects  <IPv6IntfStateObjects.rst>
-   ArpLinuxEntryState Objects  <ArpLinuxEntryStateObjects.rst>
-   ArpEntryState Objects  <ArpEntryStateObjects.rst>
-   ArpGlobal Objects  <ArpGlobalObjects.rst>
    BGPv6PeerGroup Objects  <BGPv6PeerGroupObjects.rst>
    BGPv6RouteState Objects  <BGPv6RouteStateObjects.rst>
    BGPv4Neighbor Objects  <BGPv4NeighborObjects.rst>
