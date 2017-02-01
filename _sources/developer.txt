@@ -20,30 +20,6 @@ You can help OpxFlexSwitch in many ways. Some of the ways we can think of are:
     - Spread the word
 
 
-Setting Up Development Environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SnapRoute provides a pre-configured Virtual Box image which can be used to setup Flexswitch development.
-Find more information in below link:
-
-.. toctree::
-   :maxdepth: 1
-
-   Setting Up Development Environment on Virtual Box  <vmDevEnv>
-
-
-Building OpxFlexSwitch From Sources
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-OpxFlexSwitch software consists of various protocol suites and infrastructure components. All the components in the system
-were designed to be modular and independent of each other. 
-For this reason we have organized the code as separate git repositories.
-However to facilitate building one complete installable software we have an overarching repository called reltools. 
-Follow the instructions described in the below section to build a package for deployment.
-
-.. toctree::
-   :maxdepth: 1
-
-    Build instructions <build>
-
 System Architecture
 ^^^^^^^^^^^^^^^^^^^
 OpxFlexSwitch is built with the following design principles
@@ -70,17 +46,6 @@ You can find the source code of their open source projects along with license in
    :maxdepth: 1
 
     Open Source components <opensources>
-
-Creating New Component
-^^^^^^^^^^^^^^^^^^^^^^
-Adding a new component to the OpxFlexSwitch Software requires a few steps to get started.  In addition to getting
-the basics started users should know what utilities have been written in aiding the creation of new modules.
-
-.. toctree::
-   :maxdepth: 1
-
-   Daemon Creation Quick Start Example <daemon_quick_start>
-
 
 Design Decisions 
 ^^^^^^^^^^^^^^^^^

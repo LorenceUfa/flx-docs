@@ -19,10 +19,5 @@ for accelerating development and deployment of whitebox networking gear
 .. toctree::
    :maxdepth: 1
 
-    Quick Start Guide   <quickstart>
     Developer Home <developer>
-    Network Engineer Home <nwengineer>
-    Example Configurations <example>
-    Software Installation  <softwareopxflexswitch>
-    ONIE Installation <ONIE_install>
     API Reference         <apis>
