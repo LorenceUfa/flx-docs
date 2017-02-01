@@ -22,10 +22,7 @@ API reference!
 .. toctree::
    :maxdepth: 2
 
-   Physical Objects  <PhysicalObjects.rst>
-   Platform Objects  <PlatformObjects.rst>
    L2 Objects  <L2Objects.rst>
-   Tunnel Objects  <TunnelObjects.rst>
    L3 Objects  <L3Objects.rst>
    System Objects  <SystemObjects.rst>
    Performance Objects  <PerformanceObjects.rst>
