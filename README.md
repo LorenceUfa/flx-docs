@@ -13,7 +13,8 @@ Steps for setting up development environment for Building FlexSwitch Debian Pack
 
 > - Add following in /etc/apt/sources.list file
 
-	deb https://dell-networking.bintray.com/sonic-apt jessie main
+	deb http://dl.bintray.com/open-switch/opx-apt jessie main
+	deb https://dell-networking.bintray.com/opx-apt jessie main
 
 > - Update Apt Cache
 
@@ -23,7 +24,7 @@ Steps for setting up development environment for Building FlexSwitch Debian Pack
 
 	wget http://ftp.us.debian.org/debian/pool/main/h/hiredis/libhiredis0.10_0.11.0-4_amd64.deb
 	sudo dpkg -i libhiredis0.10_0.11.0-4_amd64.deb 
-	sudo apt-get install libsonic-common-dev libsonic-db-sql-dev libsonic-object-library1 libsonic-object-library-dev libsonic-model-dev 
+	sudo apt-get install libopx-cps1 libopx-cps-dev libopx-sai-bcm-esw1 libopx-base-model-dev
 
 > - Install Golang
 
