@@ -56,6 +56,69 @@ Steps for setting up development environment for Building FlexSwitch Debian Pack
 
 > - Look for flexswitch_dellCPS-s6000-snaproute_*_amd64.deb /home/snaproute/git/reltools directory 
 
+## Example Curl Commands
+
+> - To enable Port (e101-001-0)
+
+	curl -X PATCH -H "Content-Type: application/json" -d '{"IntfRef": "e101-001-0", "AdminState":"UP"}'  http://<switch-ip>:8080/public/v1/config/Port
+
+> - To create a Vlan and adding Port as Untagged member of Vlan (Creating Vlan 10 and adding port e101-001-0 as untagged member of Vlan 10)
+
+	curl -H "Content-Type: application/json" -d '{"VlanId":10, "UntagIntfList":["e101-001-0"]}' http://<switch-ip>:8080/public/v1/config/Vlan
+
+> - To create an IPv4 Interface on Bridge Interface (Assigning 100.0.0.0/24 to bridge interface br10)
+
+	curl -H "Content-Type: application/json" -d '{"IpAddr": "100.0.0.2/24", "IntfRef":"br10"}' http://<switch-ip>:8080/public/v1/config/IPv4Intf
+
+> - To create a route policy condition. (Here we are creating a policy condition name "MatchConnected" to match connected routes)
+
+	curl -H "Content-Type: application/json" -d '{"Name":"MatchConnected", "ConditionType":"MatchProtocol", "Protocol":"CONNECTED"}' http://<switch-ip>:8080/public/v1/config/PolicyCondition
+
+> - To create a route policy statement. (Here we are creating a policy statement name "RedistributeConnectedBGP" to redistribute connected route into BGP)
+
+	curl -H "Content-Type: application/json" -d '{"Name":"RedistributeConnectedBGP", "MatchConditions":"all", "Conditions":["MatchConnected"], "Action":"permit"}' http://<switch-ip>:8080/public/v1/config/PolicyStmt
+
+> - To create a route policy defination. (Here we are creating a policy defination name "ImportPolicy" to redistribute all connected route into BGP)
+
+	curl -H "Content-Type: application/json" -d '{"Name":"ImportPolicy", "Priority":1, "MatchType":"all", "StatementList":[{"Priority":1,"Statement":"RedistributeConnectedBGP"}]}' http://<switch-ip>:8080/public/v1/config/PolicyDefinition
+
+> - To create a create a BGP global object. (Local AS Number = 300, Router Id: "10.1.10.190", Redistribute RIB Policy)
+
+	curl -H "Content-Type: application/json" -d '{"Vrf":"default", "ASNum":"300", "RouterId":"10.1.10.190", "Redistribution":[{"Sources":"CONNECTED","Policy":"ImportPolicy"}]}' -X PATCH http://<switch-ip>:8080/public/v1/config/bgpglobal
+
+> - To configure BGP IPv4 Neighbor (Neighbor Address: 100.0.0.1, Peer AS Number: 100, Local AS Number: 300)
+
+	curl -H "Content-Type: application/json" -d '{"NeighborAddress":"100.0.0.1", "IntfRef":"", "PeerAS":"100", "LocalAS":"300", "ConnectRetryTime":30, "HoldTime":3, "KeepaliveTime":1}' -X POST http://<switch-ip>:8080/public/v1/config/bgpv4neighbor
+
+> - To get Port state
+
+	curl -X GET http://<switch-ip>:8080/public/v1/state/Ports | python -m json.tool | more
+
+> - To get Vlan state
+
+	curl -X GET http://<switch-ip>:8080/public/v1/state/Vlans | python -m json.tool | more
+
+> - To get IPv4Intfs state
+
+	curl -X GET http://<switch-ip>:8080/public/v1/state/IPv4Intfs | python -m json.tool | more
+
+> - To get IPv4Routes state
+
+	curl -X GET http://<switch-ip>:8080/public/v1/state/IPv4Routes | python -m json.tool | more
+
+> - To get BGPGlobal state
+
+	curl -X GET http://<switch-ip>:8080/public/v1/state/BGPGlobals | python -m json.tool | more
+
+> - To get BGPv4Neighbors state
+
+	curl -X GET http://<switch-ip>:8080/public/v1/state/BGPv4Neighbors | python -m json.tool | more
+
+> - To get BGPv4Routes state
+
+	curl -X GET http://<switch-ip>:8080/public/v1/state/BGPv4Routes | python -m json.tool | more
+
+
 ## BGPv4 (EBGP) TOPOLOGY
 ![alt text](https://github.com/open-switch/flx-docs/blob/master/BGP_TOPOLOGY.png "BGPv4 Topology")
 
